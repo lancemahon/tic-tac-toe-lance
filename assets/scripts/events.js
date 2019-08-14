@@ -17,6 +17,10 @@ const squareClickHandler = function () {
   const cell = $(this).attr('data-id')
   if (!gameBoard.cells[cell]) {
   // square is empty, add an x
+    // make api call to add an x to the game state
+    api.squareClick($(this))
+      .then(ui.squareClickSuccess)
+      .catch(ui.failure)
     gameBoard.cells[cell] = 'x'
     $(this).html('x')
     //    // end the turn since the user played, probably call some endTurn function

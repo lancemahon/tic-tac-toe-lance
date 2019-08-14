@@ -51,10 +51,22 @@ const newGame = function () {
   })
 }
 
+const squareClick = function (square) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    square
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
-  newGame
+  newGame,
+  squareClick
 }
