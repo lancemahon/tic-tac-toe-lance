@@ -6,6 +6,9 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+// need game event handlers
+const gameEvents = require('./../game/events')
+
 $(() => {
-  // your JS code goes here
+  $('.cells').addEventListener('click', gameEvents.quareClickHandler)
 })

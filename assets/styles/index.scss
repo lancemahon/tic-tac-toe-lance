@@ -1,1 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
+$gray: #a0a0a0;
+
+.cells {
+  border: 1px solid $gray;
+  padding: 100px 0;
+}
