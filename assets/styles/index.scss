@@ -1,7 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
-$gray: #a0a0a0;
+
+$border-gray: #a0a0a0;
 
 .cells {
-  border: 1px solid $gray;
+  border: 1px solid $border-gray;
   padding: 100px 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.messages {
+  height: 40px;
 }

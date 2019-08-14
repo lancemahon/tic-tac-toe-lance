@@ -7,8 +7,13 @@
 // require('./example')
 
 // need game event handlers
-const gameEvents = require('./../game/events')
+const events = require('./events')
 
 $(() => {
-  $('.cells').addEventListener('click', gameEvents.quareClickHandler)
+  $('.cells').on('click', events.squareClickHandler)
+  $('#sign-up').on('submit', events.onSignUp)
+  $('#sign-in').on('submit', events.onSignIn)
+  $('#sign-out').on('submit', events.onSignOut)
+  $('#change-password').on('submit', events.onChangePassword)
+  $('#new-game').on('submit', events.onNewGame)
 })

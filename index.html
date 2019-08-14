@@ -13,17 +13,62 @@
     </head>
     <body>
       <h1>Browser Template</h1>
-      <div class='container'>
+      <form id='sign-up'>
+        <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]"
+             placeholder="Password">
+             <input type="password" name="credentials[password_confirmation]"
+             placeholder="Confirm Password">
+             <input type="submit" value="Sign up!">
+        </fieldset>
+        </form>
+      <form id='sign-in'>
+        <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <form id='new-game' class='hidden'>
+        <fieldset>
+          <input type="submit" value="New Game">
+        </fieldset>
+      </form>
+      <form id='sign-out' class='hidden'>
+        <fieldset>
+            <legend>Sign out!</legend>
+            <input type="submit" value="Sign out!">
+        </fieldset>
+      </form>
+      <form id='change-password' class='hidden'>
+        <fieldset>
+            <legend>Change Password!</legend>
+            <input type="password" name="passwords[old]"
+             placeholder="Current password">
+             <input type="password" name="passwords[new]"
+              placeholder="New password">
+              <input type="submit" value="Change password!">
+        </fieldset>
+      </form>
+      <section>
+        <div class='messages'>
+          <p></p>
+        </div>
+      </section>
+      <div class='container hidden'>
         <div class='row'>
-          <div class='col-4 cells'>0</div>
-          <div class='col-4 cells'>1</div>
-          <div class='col-4 cells'>2</div>
-          <div class='col-4 cells'>3</div>
-          <div class='col-4 cells'>4</div>
-          <div class='col-4 cells'>5</div>
-          <div class='col-4 cells'>6</div>
-          <div class='col-4 cells'>7</div>
-          <div class='col-4 cells'>8</div>
+          <div class='col-4 cells' data-id='0'></div>
+          <div class='col-4 cells' data-id='1'></div>
+          <div class='col-4 cells' data-id='2'></div>
+          <div class='col-4 cells' data-id='3'></div>
+          <div class='col-4 cells' data-id='4'></div>
+          <div class='col-4 cells' data-id='5'></div>
+          <div class='col-4 cells' data-id='6'></div>
+          <div class='col-4 cells' data-id='7'></div>
+          <div class='col-4 cells' data-id='8'></div>
       </div>
     </body>
 </html>
