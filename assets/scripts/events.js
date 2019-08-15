@@ -5,27 +5,27 @@
 const api = require('./api')
 const ui = require('./ui')
 const store = require('./store')
-const gameBoard = store.gameBoard
 const getFormFields = require('./../../lib/get-form-fields')
-
-// TODO make my event handlers
+const gameLogic = require('./game-logic')
 
 // squareClickHandler
 const squareClickHandler = function () {
-  // need to check if the square is clicked. I want to access a gameBoard
-  // object like so --> gameBoard.cells[i] where i is the cell clicked
-  const cell = $(this).attr('data-id')
-  if (!gameBoard.cells[cell]) {
-  // square is empty, add an x
+  const player = store.player
+  const game = store.game
+
+  const cell = $(this).attr('data-cell-index') // store index of clicked cell
+  if (game.over) { // no plays after the game ends
+    $('.game-msg').text('Time for another?')
+  } else if (!store.game.cells[cell]) {
+    // square is empty, add an x
     // make api call to add an x to the game state
-    api.squareClick($(this))
+    api.squareClick(cell)
       .then(ui.squareClickSuccess)
       .catch(ui.failure)
-    gameBoard.cells[cell] = 'x'
-    $(this).html('x')
-    //    // end the turn since the user played, probably call some endTurn function
+    game.cells[cell] = player
+    $(this).html(player)
+    gameLogic.endTurn()
   } else {
-    // square is taken, display message to user
     $('.messages').html('That square is taken, please choose another!')
   }
 }
@@ -90,11 +90,22 @@ const onNewGame = function (event) {
     .catch(ui.failure)
 }
 
+const onGetGames = function (event) {
+  // prevent default
+  event.preventDefault()
+
+  // make api call
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.failure)
+}
+
 module.exports = {
   squareClickHandler,
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
-  onNewGame
+  onNewGame,
+  onGetGames
 }

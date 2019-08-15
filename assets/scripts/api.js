@@ -51,14 +51,32 @@ const newGame = function () {
   })
 }
 
-const squareClick = function (square) {
+const squareClick = function (cell) {
   return $.ajax({
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    square
+    data: {
+      'game': {
+        'cell': {
+          'index': cell,
+          'value': '' + store.player
+        },
+        'over': store.game.over
+      }
+    }
+  })
+}
+
+const getGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -68,5 +86,6 @@ module.exports = {
   signOut,
   changePassword,
   newGame,
-  squareClick
+  squareClick,
+  getGames
 }

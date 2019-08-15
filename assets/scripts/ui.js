@@ -12,7 +12,7 @@ const signUpSuccess = function (data) {
 const signInSuccess = function (data) {
   store.user = data.user
   $('.messages').text('successfully signed in')
-  $('#sign-in, #sign-out, #change-password, #new-game').toggleClass('hidden')
+  $('#sign-in, #sign-out, #change-password, #new-game, #get-games').toggleClass('hidden')
   if (!$('#sign-up').hasClass('hidden')) {
     $('#sign-up').toggleClass('hidden')
   }
@@ -24,7 +24,7 @@ const signInSuccess = function (data) {
 const signOutSuccess = function (data) {
   store.user = {}
   $('.messages').text('successfully signed out')
-  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game').toggleClass('hidden')
+  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games, .container').toggleClass('hidden')
   console.log('signOutSuccess ran')
 }
 
@@ -35,14 +35,40 @@ const changePasswordSuccess = function (data) {
 }
 
 const newGameSuccess = function (data) {
+  store.game = data.game
+  store.player = 'x'
+  $('.game-msg').text('Player ' + store.player + ' it\'s your turn!')
   $('.messages').text('successfully created new game')
   if ($('.container').hasClass('hidden')) {
     $('.container').toggleClass('hidden')
   }
-  store.gameBoard.cells.forEach(function (element) { // clear the gameBoard object
-    element = ''
-  })
+  if ($('.game-msg').hasClass('hidden')) {
+    $('.game-msg').toggleClass('hidden')
+  }
+  // used to update my local game object here. No longer necessary because of
+  // the first line in this function
+  // store.game.cells.forEach(function (element) { // clear the gameBoard object
+  //   element = ''
   $('.cells').html('')
+}
+
+const squareClickSuccess = function () {
+  if (store.game.over) {
+    return
+  }
+  $('.game-msg').text('Player ' + store.player + ' it\'s your turn!')
+}
+
+const gameOver = function (player) {
+  $('.messages').text('Player ' + player + ' won! Congratulations!')
+  if ($('#play-again').hasClass('hidden')) {
+    $('#play-again').toggleClass('hidden')
+  }
+  $('.game-msg').text('Time for another?')
+}
+
+const getGamesSuccess = function (data) {
+  $('.game-list').html(data)
 }
 
 const failure = function () {
@@ -55,5 +81,8 @@ module.exports = {
   signOutSuccess,
   changePasswordSuccess,
   newGameSuccess,
+  gameOver,
+  squareClickSuccess,
+  getGamesSuccess,
   failure
 }
