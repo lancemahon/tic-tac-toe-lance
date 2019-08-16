@@ -6,7 +6,7 @@ const signUpSuccess = function (data) {
   $('.messages').text('successfully signed up')
   $('#sign-up').toggleClass('hidden')
   document.getElementById('sign-up').reset()
-  console.log('signUpSuccess ran')
+//  console.log('signUpSuccess ran')
 }
 
 const signInSuccess = function (data) {
@@ -18,20 +18,23 @@ const signInSuccess = function (data) {
   }
   // clear the form
   document.getElementById('sign-in').reset()
-  console.log('signInSuccess ran')
+//  console.log('signInSuccess ran')
 }
 
 const signOutSuccess = function (data) {
   store.user = {}
   $('.messages').text('successfully signed out')
-  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games, .container').toggleClass('hidden')
-  console.log('signOutSuccess ran')
+  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games').toggleClass('hidden')
+  if (!$('.container').hasClass('hidden')) {
+    $('.container').toggleClass('hidden')
+  }
+//  console.log('signOutSuccess ran')
 }
 
 const changePasswordSuccess = function (data) {
   $('.messages').text('successfully changed password')
   document.getElementById('change-password').reset()
-  console.log('changePasswordSuccess ran')
+//  console.log('changePasswordSuccess ran')
 }
 
 const newGameSuccess = function (data) {
@@ -45,10 +48,6 @@ const newGameSuccess = function (data) {
   if ($('.game-msg').hasClass('hidden')) {
     $('.game-msg').toggleClass('hidden')
   }
-  // used to update my local game object here. No longer necessary because of
-  // the first line in this function
-  // store.game.cells.forEach(function (element) { // clear the gameBoard object
-  //   element = ''
   $('.cells').html('')
 }
 
@@ -68,7 +67,17 @@ const gameOver = function (player) {
 }
 
 const getGamesSuccess = function (data) {
-  $('.game-list').html(data)
+  const gameList = $('.game-list')
+  const getGamesButton = $('.get-games-button')
+  console.log(getGamesButton.attr('value'))
+  if (getGamesButton.attr('value') === 'See your games!') {
+    const list = JSON.stringify(data)
+    gameList.text(list)
+    getGamesButton.val('Hide your games!')
+  } else if (getGamesButton.attr('value') === 'Hide your games!') {
+    gameList.text('')
+    getGamesButton.val('See your games!')
+  }
 }
 
 const failure = function () {

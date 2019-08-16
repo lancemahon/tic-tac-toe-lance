@@ -34,7 +34,7 @@ const getPlayerLetter = function (player) {
 const hasWinCondition = function (player) {
   const game = store.game
   console.log('check for win condition for player ' + player)
-  console.log('board state: ' + game)
+  console.log('board state: ' + JSON.stringify(game))
   const cells = game.cells
   // need to check if player has 3 in a row
   // there are 8(?) possibilities:
@@ -61,5 +61,6 @@ module.exports = {
   store,
   endTurn,
   getPlayerLetter,
-  hasWinCondition
+  hasWinCondition,
+  checkOver
 }

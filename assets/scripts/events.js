@@ -18,11 +18,12 @@ const squareClickHandler = function () {
     $('.game-msg').text('Time for another?')
   } else if (!store.game.cells[cell]) {
     // square is empty, add an x
+    game.cells[cell] = player
+    gameLogic.checkOver() // update the game to be 'over' if it's over
     // make api call to add an x to the game state
-    api.squareClick(cell)
+    api.updateGame(cell)
       .then(ui.squareClickSuccess)
       .catch(ui.failure)
-    game.cells[cell] = player
     $(this).html(player)
     gameLogic.endTurn()
   } else {

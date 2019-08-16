@@ -51,7 +51,7 @@ const newGame = function () {
   })
 }
 
-const squareClick = function (cell) {
+const updateGame = function (cell) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -86,6 +86,6 @@ module.exports = {
   signOut,
   changePassword,
   newGame,
-  squareClick,
+  updateGame,
   getGames
 }
