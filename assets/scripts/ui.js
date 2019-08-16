@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+// const gameLogic = require('./game-logic')
 
 const signUpSuccess = function (data) {
   $('.messages').text('successfully signed up')
@@ -42,6 +43,7 @@ const newGameSuccess = function (data) {
   store.player = 'x'
   $('.game-msg').text('Player ' + store.player + ' it\'s your turn!')
   $('.messages').text('successfully created new game')
+  $('.winning-cells').toggleClass('winning-cells')
   if ($('.container').hasClass('hidden')) {
     $('.container').toggleClass('hidden')
   }
@@ -64,6 +66,16 @@ const gameOver = function (player) {
     $('#play-again').toggleClass('hidden')
   }
   $('.game-msg').text('Time for another?')
+  outlineWinningCells()
+}
+
+const outlineWinningCells = function () {
+  const winningCells = store.winningCells
+  for (let i = 0; i < 3; i++) {
+    $('[data-cell-index|=' + winningCells[i] + ']')
+      .addClass('winning-cells')
+  }
+  console.log('outlineWinningCells ran')
 }
 
 const getGamesSuccess = function (data) {
@@ -71,7 +83,11 @@ const getGamesSuccess = function (data) {
   const getGamesButton = $('.get-games-button')
   console.log(getGamesButton.attr('value'))
   if (getGamesButton.attr('value') === 'See your games!') {
-    const list = JSON.stringify(data)
+    // const list = JSON.stringify(data) // before I stringify, I want to iterate through the games and insert newlines
+    let list = ''
+    data.games.forEach(function (game) {
+      list = list + JSON.stringify(game) + '\n' // this doesn't actually get me new lines :(
+    })
     gameList.text(list)
     getGamesButton.val('Hide your games!')
   } else if (getGamesButton.attr('value') === 'Hide your games!') {
@@ -93,5 +109,6 @@ module.exports = {
   gameOver,
   squareClickSuccess,
   getGamesSuccess,
+  // outlineWinningCells,
   failure
 }

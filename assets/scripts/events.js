@@ -84,6 +84,7 @@ const onChangePassword = function (event) {
 const onNewGame = function (event) {
   // prevent default
   event.preventDefault()
+  store.winningCells = []
 
   // make api call
   api.newGame()

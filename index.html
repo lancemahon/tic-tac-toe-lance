@@ -12,7 +12,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1 class='title'>Tic-Tac-Toe</h1>
       <form id='sign-up'>
         <fieldset>
             <legend>Sign up!</legend>
@@ -21,7 +21,7 @@
              placeholder="Password">
              <input type="password" name="credentials[password_confirmation]"
              placeholder="Confirm Password">
-             <input type="submit" value="Sign up!">
+             <input class='button' type="submit" value="Sign up!">
         </fieldset>
         </form>
       <form id='sign-in'>
@@ -29,18 +29,18 @@
             <legend>Sign in!</legend>
             <input type="text" name="credentials[email]" placeholder="Email">
             <input type="password" name="credentials[password]" placeholder="password">
-            <input type="submit" value="Sign in!">
+            <input class='button' type="submit" value="Sign in!">
         </fieldset>
       </form>
       <form id='new-game' class='hidden'>
         <fieldset>
-          <input type="submit" value="New Game">
+          <input class='button' type="submit" value="New Game">
         </fieldset>
       </form>
       <form id='sign-out' class='hidden'>
         <fieldset>
             <legend>Sign out!</legend>
-            <input type="submit" value="Sign out!">
+            <input class='button' type="submit" value="Sign out!">
         </fieldset>
       </form>
       <form id='change-password' class='hidden'>
@@ -50,7 +50,7 @@
              placeholder="Current password">
              <input type="password" name="passwords[new]"
               placeholder="New password">
-              <input type="submit" value="Change password!">
+              <input class='button' type="submit" value="Change password!">
         </fieldset>
       </form>
       <section>
@@ -79,12 +79,12 @@
       <form id='play-again' class='hidden'>
         <fieldset>
             <legend>Play again?</legend>
-              <input type="submit" value="Yeah!">
+              <input class='button' type="submit" value="Yeah!">
         </fieldset>
       </form>
       <form id='get-games' class='hidden'>
         <fieldset>
-          <input class='get-games-button' type="submit" value="See your games!">
+          <input class='get-games-button button' type="submit" value="See your games!">
           <div class='game-list'>
             <p></p>
           </div>

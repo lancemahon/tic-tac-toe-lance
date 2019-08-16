@@ -2,6 +2,7 @@
 
 const store = require('./store')
 const ui = require('./ui')
+store.winningCells = []
 
 const checkOver = function () {
   if (hasWinCondition(store.player)) {
@@ -43,14 +44,29 @@ const hasWinCondition = function (player) {
   // 6, 7, 8
   // we can have [0,1,2],[3,4,5],[6,7 8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]
   // basically we need to check if any of these cell sets have been taken by the player
-  if ((cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === player) || // this is hideous :(
-  (cells[3] === cells[4] && cells[3] === cells[5] && cells[3] === player) ||
-  (cells[6] === cells[7] && cells[6] === cells[8] && cells[6] === player) ||
-  (cells[0] === cells[3] && cells[0] === cells[6] && cells[0] === player) ||
-  (cells[1] === cells[4] && cells[1] === cells[7] && cells[1] === player) ||
-  (cells[2] === cells[5] && cells[2] === cells[8] && cells[2] === player) ||
-  (cells[0] === cells[4] && cells[0] === cells[8] && cells[0] === player) ||
-  (cells[2] === cells[4] && cells[2] === cells[6] && cells[2] === player)) {
+  if (cells[0] === cells[1] && cells[0] === cells[2] && cells[0] === player) {
+    store.winningCells.push('0', '1', '2')
+    return true
+  } else if (cells[3] === cells[4] && cells[3] === cells[5] && cells[3] === player) {
+    store.winningCells.push('3', '4', '5')
+    return true
+  } else if (cells[6] === cells[7] && cells[6] === cells[8] && cells[6] === player) {
+    store.winningCells.push('6', '7', '8')
+    return true
+  } else if (cells[0] === cells[3] && cells[0] === cells[6] && cells[0] === player) {
+    store.winningCells.push('0', '3', '6')
+    return true
+  } else if (cells[1] === cells[4] && cells[1] === cells[7] && cells[1] === player) {
+    store.winningCells.push('1', '4', '7')
+    return true
+  } else if (cells[2] === cells[5] && cells[2] === cells[8] && cells[2] === player) {
+    store.winningCells.push('2', '5', '8')
+    return true
+  } else if (cells[0] === cells[4] && cells[0] === cells[8] && cells[0] === player) {
+    store.winningCells.push('0', '4', '8')
+    return true
+  } else if (cells[2] === cells[4] && cells[2] === cells[6] && cells[2] === player) {
+    store.winningCells.push('2', '4', '6')
     return true
   } else {
     return false

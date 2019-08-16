@@ -1,9 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Lexend+Mega&display=swap');
 
 $border-gray: #a0a0a0;
+$triadic-pink: #cc335e;
+$triadic-gold: #ccb833;
+$triadic-blue: #3388cc;
 
 .cells {
-  border: 1px solid $border-gray;
+  border: 1px solid $triadic-blue;
   padding: 100px 0;
 }
 
@@ -18,4 +22,35 @@ $border-gray: #a0a0a0;
 .game-msg {
   font-size: 24px;
   text-align: center;
+}
+
+.title,
+.cells,
+.game-list {
+  font-family: Lexend Mega;
+  font-weight: bold;
+  text-align: center;
+}
+
+.game-list {
+  font-size: .8em;
+}
+
+.button {
+  background: $triadic-gold;
+  border-radius: 10px;
+}
+
+.container {
+  background: $triadic-gold;
+  border-radius: 25px;
+}
+
+.winning-cells {
+  border: 5px solid $triadic-pink;
+  padding: 100px 0;
+}
+
+body {
+  background: linear-gradient(to right, $triadic-blue, #77aaff);
 }
