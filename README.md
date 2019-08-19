@@ -1,5 +1,7 @@
 # tic-tac-toe-lance
+
 Making a tic-tac-toe game in the browser
+
 I used HTML and CSS (well, technically SASS) to structure the page. I used JavaScript and jQuery for th page's functionality, and made API calls to 
 send and receive data. I attahe all my event listeners in an app.js file, and defined all my api calling functions inside an 
 api.js file. My events.js file is where my event handlers are defined, and these are the functions that call the ones in 
