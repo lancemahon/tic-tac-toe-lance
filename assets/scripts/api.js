@@ -80,6 +80,26 @@ const getGames = function () {
   })
 }
 
+const getOverGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getCurrentGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games?over=false',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -87,5 +107,7 @@ module.exports = {
   changePassword,
   newGame,
   updateGame,
-  getGames
+  getGames,
+  getOverGames,
+  getCurrentGames
 }

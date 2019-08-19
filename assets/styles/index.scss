@@ -7,8 +7,29 @@ $triadic-gold: #ccb833;
 $triadic-blue: #3388cc;
 
 .cells {
-  border: 1px solid $triadic-blue;
+  border-bottom: 2px solid $triadic-blue;
+  border-left: 2px solid $triadic-blue;
+  border-right: 2px solid $triadic-blue;
+  border-top: 2px solid $triadic-blue;
+  height: 20vmin;
   padding: 100px 0;
+  width: 20vmin;
+}
+
+.lower-left {
+  border-radius: 0 0 0 25px;
+}
+
+.lower-right {
+  border-radius: 0 0 25px;
+}
+
+.upper-left {
+  border-radius: 25px 0 0;
+}
+
+.upper-right {
+  border-radius: 0 25px 0 0;
 }
 
 .hidden {
@@ -26,13 +47,17 @@ $triadic-blue: #3388cc;
 
 .title,
 .cells,
-.game-list {
+.game-list,
+.over-game-list,
+.current-game-list {
   font-family: Lexend Mega;
   font-weight: bold;
   text-align: center;
 }
 
-.game-list {
+.game-list,
+.over-game-list,
+.current-game-list {
   font-size: .8em;
 }
 
@@ -47,8 +72,8 @@ $triadic-blue: #3388cc;
 }
 
 .winning-cells {
-  border: 5px solid $triadic-pink;
-  padding: 100px 0;
+  border: 2px solid $triadic-pink;
+  border-radius: 4px;
 }
 
 body {

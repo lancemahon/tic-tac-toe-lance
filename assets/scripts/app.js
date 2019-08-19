@@ -18,4 +18,6 @@ $(() => {
   $('#new-game').on('submit', events.onNewGame)
   $('#play-again').on('submit', events.onNewGame)
   $('#get-games').on('submit', events.onGetGames)
+  $('#get-over-games').on('submit', events.onGetOverGames)
+  $('#get-current-games').on('submit', events.onGetCurrentGames)
 })

@@ -102,6 +102,26 @@ const onGetGames = function (event) {
     .catch(ui.failure)
 }
 
+const onGetOverGames = function (event) {
+  // prevent default
+  event.preventDefault()
+
+  // make api call
+  api.getOverGames()
+    .then(ui.getOverGamesSuccess)
+    .catch(ui.failure)
+}
+
+const onGetCurrentGames = function (event) {
+  // prevent default
+  event.preventDefault()
+
+  // make api call
+  api.getCurrentGames()
+    .then(ui.getCurrentGamesSuccess)
+    .catch(ui.failure)
+}
+
 module.exports = {
   squareClickHandler,
   onSignUp,
@@ -109,5 +129,7 @@ module.exports = {
   onSignOut,
   onChangePassword,
   onNewGame,
-  onGetGames
+  onGetGames,
+  onGetOverGames,
+  onGetCurrentGames
 }

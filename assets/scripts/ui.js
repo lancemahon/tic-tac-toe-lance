@@ -13,7 +13,7 @@ const signUpSuccess = function (data) {
 const signInSuccess = function (data) {
   store.user = data.user
   $('.messages').text('successfully signed in')
-  $('#sign-in, #sign-out, #change-password, #new-game, #get-games').toggleClass('hidden')
+  $('#sign-in, #sign-out, #change-password, #new-game, #get-games, #get-over-games, #get-current-games').toggleClass('hidden')
   if (!$('#sign-up').hasClass('hidden')) {
     $('#sign-up').toggleClass('hidden')
   }
@@ -25,7 +25,7 @@ const signInSuccess = function (data) {
 const signOutSuccess = function (data) {
   store.user = {}
   $('.messages').text('successfully signed out')
-  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games').toggleClass('hidden')
+  $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games, #get-over-games, #get-current-games').toggleClass('hidden')
   if (!$('.container').hasClass('hidden')) {
     $('.container').toggleClass('hidden')
   }
@@ -83,16 +83,67 @@ const getGamesSuccess = function (data) {
   const getGamesButton = $('.get-games-button')
   console.log(getGamesButton.attr('value'))
   if (getGamesButton.attr('value') === 'See your games!') {
-    // const list = JSON.stringify(data) // before I stringify, I want to iterate through the games and insert newlines
-    let list = ''
+    let gameCount = 0
     data.games.forEach(function (game) {
-      list = list + JSON.stringify(game) + '\n' // this doesn't actually get me new lines :(
+      gameCount++
     })
-    gameList.text(list)
-    getGamesButton.val('Hide your games!')
+    if (gameCount === 1) {
+      gameList.text('You\'ve played 1 game!')
+    } else if (gameCount === 0) {
+      gameList.text('You haven\'t played any games!')
+    } else {
+      gameList.text('You\'ve played ' + gameCount + ' games!')
+      getGamesButton.val('Hide your games!')
+    }
   } else if (getGamesButton.attr('value') === 'Hide your games!') {
     gameList.text('')
     getGamesButton.val('See your games!')
+  }
+}
+
+const getOverGamesSuccess = function (data) {
+  const gameList = $('.over-game-list')
+  const getGamesButton = $('.get-over-games-button')
+  console.log(getGamesButton.attr('value'))
+  if (getGamesButton.attr('value') === 'See your finished games!') {
+    let gameCount = 0
+    data.games.forEach(function (game) {
+      gameCount++
+    })
+    if (gameCount === 1) {
+      gameList.text('You\'ve finished 1 game!')
+    } else if (gameCount === 0) {
+      gameList.text('You haven\'t finished any games!')
+    } else {
+      gameList.text('You\'ve finished ' + gameCount + ' games!')
+      getGamesButton.val('Hide your finished games!')
+    }
+  } else if (getGamesButton.attr('value') === 'Hide your finished games!') {
+    gameList.text('')
+    getGamesButton.val('See your finished games!')
+  }
+}
+
+const getCurrentGamesSuccess = function (data) {
+  const gameList = $('.current-game-list')
+  const getGamesButton = $('.get-current-games-button')
+  console.log(getGamesButton.attr('value'))
+  if (getGamesButton.attr('value') === 'See your unfinished games!') {
+    let gameCount = 0
+    data.games.forEach(function (game) {
+      gameCount++
+    })
+    if (gameCount === 1) {
+      gameList.text('You have 1 unfinished game!')
+    } else if (gameCount === 0) {
+      gameList.text('You have no unfinished games!')
+    } else {
+      gameList.text('You have ' + gameCount + ' unfinished games!')
+      getGamesButton.val('Hide your unfinished games!')
+    }
+  } else if (getGamesButton.attr('value') === 'Hide your unfinished games!') {
+    gameList.text('')
+    getGamesButton.val('See your unfinished games!')
   }
 }
 
@@ -109,6 +160,7 @@ module.exports = {
   gameOver,
   squareClickSuccess,
   getGamesSuccess,
-  // outlineWinningCells,
+  getOverGamesSuccess,
+  getCurrentGamesSuccess,
   failure
 }

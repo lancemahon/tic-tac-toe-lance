@@ -65,15 +65,15 @@
           </div>
         </div>
         <div class='row'>
-          <div class='col-4 cells' data-cell-index='0'></div>
+          <div class='col-4 cells upper-left' data-cell-index='0'></div>
           <div class='col-4 cells' data-cell-index='1'></div>
-          <div class='col-4 cells' data-cell-index='2'></div>
+          <div class='col-4 cells upper-right' data-cell-index='2'></div>
           <div class='col-4 cells' data-cell-index='3'></div>
           <div class='col-4 cells' data-cell-index='4'></div>
           <div class='col-4 cells' data-cell-index='5'></div>
-          <div class='col-4 cells' data-cell-index='6'></div>
+          <div class='col-4 cells lower-left' data-cell-index='6'></div>
           <div class='col-4 cells' data-cell-index='7'></div>
-          <div class='col-4 cells' data-cell-index='8'></div>
+          <div class='col-4 cells lower-right' data-cell-index='8'></div>
         </div>
       </div>
       <form id='play-again' class='hidden'>
@@ -86,6 +86,22 @@
         <fieldset>
           <input class='get-games-button button' type="submit" value="See your games!">
           <div class='game-list'>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+      <form id='get-over-games' class='hidden'>
+        <fieldset>
+          <input class='get-over-games-button button' type="submit" value="See your finished games!">
+          <div class='over-game-list'>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+      <form id='get-current-games' class='hidden'>
+        <fieldset>
+          <input class='get-current-games-button button' type="submit" value="See your unfinished games!">
+          <div class='current-game-list'>
             <p></p>
           </div>
         </fieldset>
