@@ -12,6 +12,7 @@ leave one file blank while I wrote functions that depended on that file. I don't
 recommended way, and I found myself cycling through each file for every piece of functionality.
 
 Here are some wireframes that I didn't exactly follow... 
+https://docs.google.com/document/d/e/2PACX-1vTaBBmnTZqiD-AugEumjLW3x18dj-TSv-kUJJNPOsVKNOgCZhxhmq1yQnBzaTflH51IeXb8J-3JT28z/pub
 ![alt text](https://imgur.com/a/Vq7Jvl6 "Tic-tac-toe wireframe")
 
 They at least helped me think about what elements the page would need, even if I didn't organize the page according to 
