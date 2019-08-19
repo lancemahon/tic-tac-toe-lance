@@ -1,13 +1,11 @@
 'use strict'
 
 const store = require('./store')
-// const gameLogic = require('./game-logic')
 
 const signUpSuccess = function (data) {
   $('.messages').text('successfully signed up')
   $('#sign-up').toggleClass('hidden')
   document.getElementById('sign-up').reset()
-//  console.log('signUpSuccess ran')
 }
 
 const signInSuccess = function (data) {
@@ -19,7 +17,6 @@ const signInSuccess = function (data) {
   }
   // clear the form
   document.getElementById('sign-in').reset()
-//  console.log('signInSuccess ran')
 }
 
 const signOutSuccess = function (data) {
@@ -29,13 +26,11 @@ const signOutSuccess = function (data) {
   if (!$('.container').hasClass('hidden')) {
     $('.container').toggleClass('hidden')
   }
-//  console.log('signOutSuccess ran')
 }
 
 const changePasswordSuccess = function (data) {
   $('.messages').text('successfully changed password')
   document.getElementById('change-password').reset()
-//  console.log('changePasswordSuccess ran')
 }
 
 const newGameSuccess = function (data) {
@@ -75,13 +70,11 @@ const outlineWinningCells = function () {
     $('[data-cell-index|=' + winningCells[i] + ']')
       .addClass('winning-cells')
   }
-  console.log('outlineWinningCells ran')
 }
 
 const getGamesSuccess = function (data) {
   const gameList = $('.game-list')
   const getGamesButton = $('.get-games-button')
-  console.log(getGamesButton.attr('value'))
   if (getGamesButton.attr('value') === 'See your games!') {
     let gameCount = 0
     data.games.forEach(function (game) {
@@ -104,7 +97,6 @@ const getGamesSuccess = function (data) {
 const getOverGamesSuccess = function (data) {
   const gameList = $('.over-game-list')
   const getGamesButton = $('.get-over-games-button')
-  console.log(getGamesButton.attr('value'))
   if (getGamesButton.attr('value') === 'See your finished games!') {
     let gameCount = 0
     data.games.forEach(function (game) {
@@ -127,7 +119,6 @@ const getOverGamesSuccess = function (data) {
 const getCurrentGamesSuccess = function (data) {
   const gameList = $('.current-game-list')
   const getGamesButton = $('.get-current-games-button')
-  console.log(getGamesButton.attr('value'))
   if (getGamesButton.attr('value') === 'See your unfinished games!') {
     let gameCount = 0
     data.games.forEach(function (game) {
