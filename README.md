@@ -25,9 +25,9 @@ a workaround where I could calculate a winner from each game returned, but that 
 
 
 Here are some user stories! Woo!
-As a user, I want to be able to sign up with an email and password
-As a user, I want to have impertinent information hidden from me
-As a player, I want to be able to click any open square to make my move
-As a player, I want to be able to keep track of my games
-As a player, I want to be able to re-start my game at any point
-As a user, I want to be able to sign-out
+- As a user, I want to be able to sign up with an email and password
+- As a user, I want to have impertinent information hidden from me
+- As a player, I want to be able to click any open square to make my move
+- As a player, I want to be able to keep track of my games
+- As a player, I want to be able to re-start my game at any point
+- As a user, I want to be able to sign-out
