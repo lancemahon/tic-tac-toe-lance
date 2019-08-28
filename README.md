@@ -22,3 +22,12 @@ The page still needs work in the styling department. And it would be nice to hav
 with separate buttons. I also wish there was a way to list games by winning player (or list games won by a player). The API 
 doesn't seem to make that workable, however, by not storing who the winner in each game is. I suppose I could implement 
 a workaround where I could calculate a winner from each game returned, but that feels super inefficient.
+
+
+Here are some user stories! Woo!
+As a user, I want to be able to sign up with an email and password
+As a user, I want to have impertinent information hidden from me
+As a player, I want to be able to click any open square to make my move
+As a player, I want to be able to keep track of my games
+As a player, I want to be able to re-start my game at any point
+As a user, I want to be able to sign-out
