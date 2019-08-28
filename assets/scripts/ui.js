@@ -17,6 +17,11 @@ const signInSuccess = function (data) {
   }
   // clear the form
   document.getElementById('sign-in').reset()
+
+  // have to change all the games buttons to "see" not "hide"
+  $('.get-games-button').val('See your games!')
+  $('.get-over-games-button').val('See your finished games!')
+  $('.get-current-games-button').val('See your unfinished games!')
 }
 
 const signOutSuccess = function (data) {
