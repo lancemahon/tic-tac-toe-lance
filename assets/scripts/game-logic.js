@@ -9,7 +9,6 @@ const checkOver = function () {
     store.game.over = true
     return true
   } else if (boardIsFull()) {
-    console.log('Board being read as full, inside checkOver')
     store.game.full = true
     store.game.over = true
     return true
@@ -40,10 +39,8 @@ const getPlayerLetter = function (player) {
 const boardIsFull = function () {
   const cells = store.game.cells
   if (cells.some(x => x === '')) {
-    console.log('Some squares are being read as empty, inside boardIsFull')
     return false // if some squares are empty, board is not full
   } else {
-    console.log('All squarees are being read as full, inside boardIsFull')
     return true // if no squares are empty, board is full
   }
 }

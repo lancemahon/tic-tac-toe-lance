@@ -22,10 +22,14 @@ const signInSuccess = function (data) {
 const signOutSuccess = function (data) {
   store.user = {}
   $('.messages').text('successfully signed out')
+  console.log('inside signOutSuccess')
   $('#sign-in, #sign-up, #sign-out, #change-password, #new-game, #get-games, #get-over-games, #get-current-games').toggleClass('hidden')
   if (!$('.container').hasClass('hidden')) {
     $('.container').toggleClass('hidden')
   }
+  $('.game-list').text('')
+  $('.over-game-list').text('')
+  $('.current-game-list').text('')
 }
 
 const changePasswordSuccess = function (data) {
@@ -80,10 +84,10 @@ const getGamesSuccess = function (data) {
   const gameList = $('.game-list')
   const getGamesButton = $('.get-games-button')
   if (getGamesButton.attr('value') === 'See your games!') {
-    let gameCount = 0
-    data.games.forEach(function (game) {
-      gameCount++
-    })
+    // data.games.forEach(function (game) {
+    //   gameCount++
+    // })
+    const gameCount = data.games.length
     if (gameCount === 1) {
       gameList.text('You\'ve played 1 game!')
     } else if (gameCount === 0) {
@@ -102,10 +106,10 @@ const getOverGamesSuccess = function (data) {
   const gameList = $('.over-game-list')
   const getGamesButton = $('.get-over-games-button')
   if (getGamesButton.attr('value') === 'See your finished games!') {
-    let gameCount = 0
-    data.games.forEach(function (game) {
-      gameCount++
-    })
+    // data.games.forEach(function (game) {
+    //   gameCount++
+    // })
+    const gameCount = data.games.length
     if (gameCount === 1) {
       gameList.text('You\'ve finished 1 game!')
     } else if (gameCount === 0) {
@@ -124,10 +128,10 @@ const getCurrentGamesSuccess = function (data) {
   const gameList = $('.current-game-list')
   const getGamesButton = $('.get-current-games-button')
   if (getGamesButton.attr('value') === 'See your unfinished games!') {
-    let gameCount = 0
-    data.games.forEach(function (game) {
-      gameCount++
-    })
+    // data.games.forEach(function (game) {
+    //   gameCount++
+    // })
+    const gameCount = data.games.length
     if (gameCount === 1) {
       gameList.text('You have 1 unfinished game!')
     } else if (gameCount === 0) {
