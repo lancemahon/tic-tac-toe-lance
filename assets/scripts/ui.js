@@ -56,7 +56,11 @@ const squareClickSuccess = function () {
 }
 
 const gameOver = function (player) {
-  $('.messages').text('Player ' + player + ' won! Congratulations!')
+  if (store.game.full === true) {
+    $('.messages').text('The board is full, this one\'s a draw!')
+  } else {
+    $('.messages').text('Player ' + player + ' won! Congratulations!')
+  }
   if ($('#play-again').hasClass('hidden')) {
     $('#play-again').toggleClass('hidden')
   }

@@ -8,6 +8,11 @@ const checkOver = function () {
   if (hasWinCondition(store.player)) {
     store.game.over = true
     return true
+  } else if (boardIsFull()) {
+    console.log('Board being read as full, inside checkOver')
+    store.game.full = true
+    store.game.over = true
+    return true
   } else {
     return false
   }
@@ -32,10 +37,19 @@ const getPlayerLetter = function (player) {
   }
 }
 
+const boardIsFull = function () {
+  const cells = store.game.cells
+  if (cells.some(x => x === '')) {
+    console.log('Some squares are being read as empty, inside boardIsFull')
+    return false // if some squares are empty, board is not full
+  } else {
+    console.log('All squarees are being read as full, inside boardIsFull')
+    return true // if no squares are empty, board is full
+  }
+}
+
 const hasWinCondition = function (player) {
   const game = store.game
-  console.log('check for win condition for player ' + player)
-  console.log('board state: ' + JSON.stringify(game))
   const cells = game.cells
   // need to check if player has 3 in a row
   // there are 8(?) possibilities:
@@ -78,5 +92,6 @@ module.exports = {
   endTurn,
   getPlayerLetter,
   hasWinCondition,
-  checkOver
+  checkOver,
+  boardIsFull
 }

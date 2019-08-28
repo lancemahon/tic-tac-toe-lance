@@ -34,10 +34,8 @@ const squareClickHandler = function () {
 const onSignUp = function (event) {
   // prevent default action from happening
   event.preventDefault()
-  console.log('submitted sign-up!')
   // get form data
   const data = getFormFields(event.target)
-  console.log('sign up data is: ', data)
 
   // make the api call
   api.signUp(data)
@@ -48,10 +46,8 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   // prevent default
   event.preventDefault()
-  console.log('submitted sign-in!')
   // get form data
   const data = getFormFields(event.target)
-  console.log('sign-in data is: ', data)
 
   // make the api call
   api.signIn(data)
