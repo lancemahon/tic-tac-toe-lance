@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic-tac-toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1 class='title'>Tic-Tac-Toe</h1>
+      <form id='sign-up'>
+        <fieldset>
+            <legend>Sign up!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]"
+             placeholder="Password">
+             <input type="password" name="credentials[password_confirmation]"
+             placeholder="Confirm Password">
+             <input class='button' type="submit" value="Sign up!">
+        </fieldset>
+        </form>
+      <form id='sign-in'>
+        <fieldset>
+            <legend>Sign in!</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="password">
+            <input class='button' type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+      <form id='new-game' class='hidden'>
+        <fieldset>
+          <input class='button' type="submit" value="New Game">
+        </fieldset>
+      </form>
+      <form id='sign-out' class='hidden'>
+        <fieldset>
+            <legend>Sign out!</legend>
+            <input class='button' type="submit" value="Sign out!">
+        </fieldset>
+      </form>
+      <form id='change-password' class='hidden'>
+        <fieldset>
+            <legend>Change Password!</legend>
+            <input type="password" name="passwords[old]"
+             placeholder="Current password">
+             <input type="password" name="passwords[new]"
+              placeholder="New password">
+              <input class='button' type="submit" value="Change password!">
+        </fieldset>
+      </form>
+      <section>
+        <div class='messages'>
+          <p></p>
+        </div>
+      </section>
+      <div class='container hidden'>
+        <div class='row'>
+          <div class='col-12 game-msg'>
+            <p></p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-4 cells upper-left' data-cell-index='0'></div>
+          <div class='col-4 cells' data-cell-index='1'></div>
+          <div class='col-4 cells upper-right' data-cell-index='2'></div>
+          <div class='col-4 cells' data-cell-index='3'></div>
+          <div class='col-4 cells' data-cell-index='4'></div>
+          <div class='col-4 cells' data-cell-index='5'></div>
+          <div class='col-4 cells lower-left' data-cell-index='6'></div>
+          <div class='col-4 cells' data-cell-index='7'></div>
+          <div class='col-4 cells lower-right' data-cell-index='8'></div>
+        </div>
+      </div>
+      <form id='play-again' class='hidden'>
+        <fieldset>
+            <legend>Play again?</legend>
+              <input class='button' type="submit" value="Yeah!">
+        </fieldset>
+      </form>
+      <form id='get-games' class='hidden'>
+        <fieldset>
+          <input class='get-games-button button' type="submit" value="See your games!">
+          <div class='game-list'>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+      <form id='get-over-games' class='hidden'>
+        <fieldset>
+          <input class='get-over-games-button button' type="submit" value="See your finished games!">
+          <div class='over-game-list'>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+      <form id='get-current-games' class='hidden'>
+        <fieldset>
+          <input class='get-current-games-button button' type="submit" value="See your unfinished games!">
+          <div class='current-game-list'>
+            <p></p>
+          </div>
+        </fieldset>
+      </form>
+    </body>
+</html>
