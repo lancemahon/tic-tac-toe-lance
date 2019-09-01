@@ -153,7 +153,6 @@ const getCurrentGamesSuccess = function (data) {
 
 const failure = function () {
   $('.messages').text('There was an error. Beep boop.')
-  console.log('test')
   // reset all form fields on any failed submission
   document.getElementById('sign-in').reset()
   document.getElementById('sign-out').reset()
